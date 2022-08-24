@@ -4,9 +4,9 @@ import java.util.List;
 public class Page {
 
     private final byte[] randomBytes;
-    private static final String PAGE_PREFIX = "\\\\begin{flushleft}" 
-            + "\\\\begin{tabular}{c c c c c @{\\\\hskip 2em} c c c c c @{\\\\hskip 2em} c c c c c}";
-    private static final String PAGE_SUFFIX = "\\\\end{tabular}\n\\\\end{flushleft}\n\\\\newpage";
+    private static final String PAGE_PREFIX = "\\begin{flushleft}" 
+            + "\\begin{tabular}{c c c c c @{\\hskip 2em} c c c c c @{\\hskip 2em} c c c c c}";
+    private static final String PAGE_SUFFIX = "\\end{tabular}\n\\end{flushleft}\n\\newpage";
 
     public Page(byte[] randomBytes) {
         if (randomBytes.length < 150) {
@@ -41,11 +41,11 @@ public class Page {
             }
 
             String block = "\t" + String.join(" & ", byteArrayToStringArray(currentBytes)) + "\\\\"
-                    + "\\\\U & \\\\U & \\\\U & \\\\U & \\\\U & \\\\U & \\\\U & \\\\U & \\\\U & \\\\U & \\\\U & \\\\U & \\\\U & \\\\U & \\\\U \\\\\\\\ \\\\\\\\";
+                    + "\\U & \\U & \\U & \\U & \\U & \\U & \\U & \\U & \\U & \\U & \\U & \\U & \\U & \\U & \\U \\\\ \\\\";
             blocks.add(block);
         }
 
-        String blocksStr = String.join("\\hline \\\\\n", blocks);
+        String blocksStr = String.join("\\hline \\ \n", blocks);
         return PAGE_PREFIX + "\n" + blocksStr + "\n" + PAGE_SUFFIX;
 
     }
