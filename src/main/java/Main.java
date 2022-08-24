@@ -32,7 +32,7 @@ public class Main {
         return template.replace("<pageshere>", pages);
 
         } catch (Exception e) {
-            System.out.println("Exception, too bad! Msg.: " + e.getLocalizedMessage());
+            System.out.println("1: Exception, too bad! Msg.: " + e.getMessage());
         }
 
         return "Something has gone wrong. Consult the logs.";
@@ -52,7 +52,7 @@ public class Main {
             out.println(book);
 
         } catch (Exception e) {
-            System.out.println("Exception! " + e.getLocalizedMessage());
+            System.out.println("Exception! " + e.getMessage());
         }
 
         System.out.println("Finished, check output dir.");
