@@ -39,11 +39,12 @@ public class Main {
     }
 
 
-    // TODO: Add Parameters
+    // Parameters: Randomness device, Pages
     public static void main(String[] args) {
 
-        randSource = new DeviceByteReader("/dev/urandom");
-        String pages = getPagesLatex(10);
+        randSource = new DeviceByteReader(args[0]);
+        int nPages = Integer.parseInt(args[1]);
+        String pages = getPagesLatex(nPages);
         String book = renderTemplate(pages);
 
         try (PrintWriter out = new PrintWriter("output/codebook.tex")) {
